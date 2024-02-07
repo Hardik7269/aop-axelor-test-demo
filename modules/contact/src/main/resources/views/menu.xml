@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views
+  https://axelor.com/xml/ns/object-views/object-views_6.0.xsd">
+  
+  <action-view name="cotact.address" title="Address" model="com.axelor.contact.db.Address" >
+  	<view type="grid" name="contact-address"/>
+  </action-view>
+  
+  <menuitem title="Address" name="menu.address"/>  
+  <menuitem title="Address_inside" name="all.address" parent="menu.address" action="cotact.address"/>
+
+  
+  </object-views>
