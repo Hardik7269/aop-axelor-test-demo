@@ -40,4 +40,5 @@ dependencies {
   // add module dependencies
   api project(":modules:contact")
   api project(":modules:sale")
+
 }

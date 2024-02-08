@@ -6,10 +6,11 @@
 
 	<module package="com.axelor.contact.db" name="contact" />
 	<entity name="Address">
+	
 		<string name="numberAndStreet" required="true" title="N* / Street"></string>
 		<string name="zip" required="true" ></string>
 		<string name="city" required="true" ></string>
-		<many-to-one ref="com.axelor.contact.db.Country" name="country"></many-to-one>
+		<many-to-one ref="com.axelor.contact.db.Country" name="countryList"></many-to-one>
 		<string name="fullName" namecolumn="true" search="zip,numberAndStreet,city">
 			<![CDATA[
 			if(zip == null || numberAndStreet == null || city == null ){
