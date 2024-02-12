@@ -14,7 +14,11 @@
 	                  	<view-param name="showArchived" value="true"/>
 	         </action-view>
 
-      <menuitem title="Events" name="contact-root-events" parent="contact-root" />
+      <menuitem title="Events" name="contact-root-events" parent="contact-root" action="action.contact.view.event"/>
+      <action-view name="action.contact.view.event" title="Events" model="com.axelor.contact.db.Event">
+      	<view type="grid" name="event-grid"/>
+      	<view type="form" name="event-form"/>
+      </action-view>
      
       
         <menuitem title="Configuration" name="contact-root-configuration" parent="contact-root"  icon="fa-gear"/>

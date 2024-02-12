@@ -7,12 +7,15 @@
 
 	<module name="axelor-contact" package="com.axelor.contact.db" />
 
+
+	<sequence name="peopelSequence" increment="1" initial="101" prefix="PE" suffix="AXE"/>
 	<entity name="Contact">
 		<many-to-one name="title" ref="com.axelor.contact.db.Title" required="true"  title="Title"/>
 		
-		<string name="lastName" required="true" title="First name"/>
 		<string name="firstName" required="true" title="Last name"/>
-		<string name="fullName" namecolumn="true" search="firstName,lastName" title="Full name">
+	
+		<string name="lastName" required="true" title="First name"/>
+		<string name="fullName" namecolumn="true" search="firstName,lastName" title="Full name" sequence="">
     <![CDATA[
     if (firstName == null && lastName == null) {
         return "";
@@ -30,6 +33,12 @@
 		<boolean name="isSubjectToTaxes" title="Apply taxes" required="false" default="false"></boolean>
 		<many-to-one name="address"	ref="com.axelor.contact.db.Address" required="true" />
 		<many-to-many ref="com.axelor.contact.db.Contact"  name="familyContactSet" title="Family Members"/>
+		
+		<track>
+			<field name="fullName" on="ALWAYS"/>
+			<message if="true" on="ALWAYS"> USER Cerated</message>
+		</track>
 	</entity>
+ 
 
 </domain-models>

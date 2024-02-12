@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://axelor.com/xml/ns/object-views
+  https://axelor.com/xml/ns/object-views/object-views_6.0.xsd">
+
+    <grid name="contact-grid" title="Contacts" model="com.axelor.contact.db.Contact">
+
+        <field name="fullName" title="Full name"></field>
+        <field name="birthDate" title="Date fo birth"></field>
+        <field name="email" title="Email"></field>
+        <field name="phone" title="Phone number"></field>
+        <field name="isSubjectToTaxes" title="Apply taxes"></field>
+        <field name="address" title="Address"></field>
+        <field name="Archived" title="Archived"></field>
+
+    </grid>
+	
+	<form model="com.axelor.contact.db.Contact" title="Contact" name="contact-form" width="large">
+		<panel title="Profile">
+			<panel colSpan="3">
+				<field name="image" widget="image" ></field>
+			</panel>
+			<panel colSpan="9" >
+				<field name="firstName"></field>
+				<field name="lastName"></field>
+				<field name="title"></field>
+				<field name="birthDate" ></field>
+				
+			</panel>
+		</panel>
+		
+		<panel-tabs>
+			<panel title="Contact">
+				<field name="email" colSpan="3" ></field>
+				<field name="phone" colSpan="3" widget="phone"></field>
+				<field name="address"></field>
+			</panel>
+			<panel title="Other informations">
+				<field name="isSubjectToTaxes" widget="boolean-switch"></field>
+				<field name="familyContactSet" widget="ref text"></field>
+			</panel>
+		</panel-tabs>
+		<panel-dashlet action="action.sale.data.view.sale.order.line"/>
+		
+		<panel-mail>
+			<mail-messages limit="5"/>
+			<mail-followers/>
+		</panel-mail>
+
+	</form>
+
+</object-views>
