@@ -22,8 +22,8 @@
 				<field name="image" widget="image" ></field>
 			</panel>
 			<panel colSpan="9" >
-				<field name="firstName"></field>
-				<field name="lastName"></field>
+				<field name="firstName" title="First Name"/>
+				<field name="lastName" title="Last Name"/>
 				<field name="title"></field>
 				<field name="birthDate" ></field>
 				

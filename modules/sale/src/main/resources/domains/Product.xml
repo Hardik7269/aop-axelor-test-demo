@@ -10,16 +10,15 @@
 		<string name="code" title="Code" required="true" unique="true"></string>
 		<string name="fullName" title="Full name" namecolumn="true" search="name,code">
 			<![CDATA[
-				if(name == null && code == null){
+				if(name == null || code == null){
 					return  "";
 				}
 				return "["+code+"]"+name;
-			]]>
-			
+			]]>	
 		</string>
 		
-		<decimal name="unitPriceUntaxed" title="Unit Price untaxed" required="true" min="0"></decimal>
-		<many-to-one ref="com.axelor.sale.db.ProductCategory" name="productCategory" title="Product Category" required="true"></many-to-one>
+		<decimal name="unitPriceUntaxed" title="Unit Price untaxed" required="true" min="0"/>
+		<many-to-one name="productCategoryList" ref="com.axelor.sale.db.ProductCategory"  title="Product Category" required="true"/>
 		<binary name="image" title="Image"></binary>
 	
 	</entity>

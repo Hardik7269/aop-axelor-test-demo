@@ -6,11 +6,11 @@
 
 
 	<grid model="com.axelor.contact.db.Address" title="Addresses" name="address-grid">
-		<field name="fullName"></field>
-		<field name="numberAndStreet"></field>
-		<field name="zip"></field>
-		<field name="city"></field>
-		<field name="countryList"></field>
+		<field name="fullName"/>
+		<field name="numberAndStreet"/>
+		<field name="zip"/>
+		<field name="city"/>
+		<field name="countryList"/>
 		
 	</grid>
 
