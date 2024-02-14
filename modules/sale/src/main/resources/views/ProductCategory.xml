@@ -21,8 +21,8 @@
 	</form>
 	
   <selection name="stock.stock.location.type.select">
-    <option value="0" icon="img/productCategory/truck.png">Prestation</option>
-    <option value="1" icon="img/productCategory/storage.png">Product</option>
+    <option value="0" icon="img/productCategory/storable.png">Prestation</option>
+    <option value="1" icon="img/productCategory/service.png">Product</option>
   </selection>
 
 </object-views>

@@ -5,10 +5,10 @@
   https://axelor.com/xml/ns/object-views/object-views_6.0.xsd">
 
 
-	<grid model="com.axelor.sale.db.SaleOrder" title="Sale order lines" name="quotation-sale-order-grid" canNew="false">
+	<grid model="com.axelor.sale.db.SaleOrder" title="Sale order lines" name="quotation-sale-order-grid" canEdit="false" canNew="false">
 		<field name="saleOrderSeq"/>	
 		<field name="quotationDateT"/>
-		<field name="confirmationDate"/>
+		<field name="saleOrder.confirmationDate"/>
 		<field name="statusSelect" domain="true" />
 		<field name="inTaxTotal"/>
 		<field name="customer"/>

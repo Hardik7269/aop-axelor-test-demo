@@ -13,9 +13,9 @@
 						
      <menuitem title="Quotation sale orders" name="sale-root-quotation-sale-orders" parent="sale-root" action="action.sale.view.quotation.sale.orders" tag-count="true" tag-style="important"/>
      		<action-view name="action.sale.view.quotation.sale.orders" title="Quotation sale orders" model="com.axelor.sale.db.SaleOrder">
-						<view type="grid" name="quotation-sale-order-grid" />
+						<view type="grid" name="sale-order-grid" />
 						<view type="form" name="sale-order-form" />
-						<domain>self.statusSelect='quotation'</domain>
+						<domain>self.statusSelect='quotation'</domain>					
 			</action-view>
 			
 			
@@ -46,6 +46,13 @@
 						<view-param name="search-filters" value="searchFilter"/>
 						
 					</action-view>
+					
+					<action-view name="action.sale.data.view.sale.order.line.contact" title="Sale order lines" model="com.axelor.sale.db.SaleOrderLine">
+						<view type="grid" name="sale-order-line-grid-form-menu" />
+						<domain>self.saleOrder.customer.fullName = :fullName</domain>
+						<context name="fullName" expr="fullName"/>
+					</action-view>
+										
 					<search-filters name="searchFilter" model="com.axelor.sale.db.SaleOrderLine" title="search-filter">
 							<filter title="Draft lines">
 								<domain>self.saleOrder.statusSelect = "draft"</domain>	
@@ -62,4 +69,4 @@
 					</search-filters>
 					
 				
-  </object-views>
+</object-views>

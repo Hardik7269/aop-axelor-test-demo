@@ -10,17 +10,16 @@
 		<field name="numberAndStreet"/>
 		<field name="zip"/>
 		<field name="city"/>
-		<field name="countryList"/>
-		
+		<field name="countryList"/>		
 	</grid>
 
-<form model="com.axelor.contact.db.Address" title="UserAddress" name="address-form">
-	<panel>	
-	<field name="numberAndStreet"/>
-	<field name="zip"/>
-	<field name="city"/>
-	<field name="countryList"/>
-	</panel>
-</form>
+	<form model="com.axelor.contact.db.Address" title="Address" name="address-form">
+		<panel>	
+		<field name="numberAndStreet"/>
+		<field name="zip"/>
+		<field name="city"/>
+		<field name="countryList"/>
+		</panel>
+	</form>
 
 </object-views>

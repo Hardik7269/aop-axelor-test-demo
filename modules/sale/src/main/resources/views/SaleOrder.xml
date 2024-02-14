@@ -31,7 +31,7 @@
 			<field name="confirmationDate"/>
 			
 		</panel>
-		<panel sidebar="true" title="Dates" collapseIf="true" readonly="true">
+		<panel sidebar="true" title="Prices" collapseIf="true" readonly="true">
 			<field name="inTaxTotal"/>					
 		</panel>
 	</form>
