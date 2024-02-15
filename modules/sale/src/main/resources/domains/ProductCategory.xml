@@ -6,6 +6,7 @@
 
 	<module package="com.axelor.sale.db" name="sale" />
 	<entity name="ProductCategory">
+	
 	<string name="name" title="Name" required="true" unique="true"></string>
 	<string name="code" title="Code" required="true" unique="true"></string>
 	<string name="fullName" title="Full name" namecolumn="true" >
@@ -16,8 +17,9 @@
 				return "["+code+"]"+name;
 		]]>
 	</string>	
-		<integer name="iconSelect" title="Icon"/>
-
+		<integer name="iconSelect" title="Icon">
+			
+		</integer>
 		<extra-code >
 		<![CDATA[
 			public static final int ICON_PRESTATION = 0;

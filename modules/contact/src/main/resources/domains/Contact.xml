@@ -10,10 +10,9 @@
 	<entity name="Contact">
 		<many-to-one name="title" ref="com.axelor.contact.db.Title" required="true"  title="Title"/>
 		
-		<string name="firstName" required="true" title="First name"/>
-	
 		<string name="lastName" required="true" title="Last name"/>
-		<string name="fullName" namecolumn="true" search="firstName,lastName" title="Full name" sequence="">
+		<string name="firstName" required="true" title="First name"/>
+		<string name="fullName" namecolumn="true" search="firstName,lastName" title="Full name">
     <![CDATA[
     if (firstName == null && lastName == null) {
         return "";
@@ -28,14 +27,14 @@
 		<string name="email"  title="Email"/>
 		<string name="phone"  title="Phone number"/>
 		<binary name="image" title="Profile picture"/>
-		<boolean name="isSubjectToTaxes" title="Apply taxes" required="false" default="false"/>
+		<boolean name="isSubjectToTaxes" title="Apply taxes" required="false" default="false"></boolean>
 		<many-to-one name="address"	ref="com.axelor.contact.db.Address" required="true" />
 		<many-to-many ref="com.axelor.contact.db.Contact"  name="familyContactSet" title="Family Members"/>
 		
 		<track>
 			<field name="fullName" on="ALWAYS"/>
-			<message if="true" on="ALWAYS"> USER Cerated</message>
+			<message if="true" on="ALWAYS">Record created</message>
 		</track>
 	</entity>
- 
+
 </domain-models>

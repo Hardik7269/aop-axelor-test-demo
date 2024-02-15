@@ -13,6 +13,16 @@
 		<field name="inTaxTotal"/>	
 		<field name="customer"/>	
 	</grid>
+	<grid model="com.axelor.sale.db.SaleOrder" title="Sale order lines" name="quotation-sale-order-grid" canEdit="false" canNew="false">
+		<field name="saleOrderSeq"/>	
+		<field name="quotationDateT"/>
+		<field name="saleOrder.confirmationDate"/>
+		<field name="statusSelect" domain="true" />
+		<field name="inTaxTotal"/>
+		<field name="customer"/>
+	</grid>
+	
+	
 	<form model="com.axelor.sale.db.SaleOrder" title="Sale Order" name="sale-order-form" width="large">
 		<panel>
 			<field name="statusSelect" selection="SaleOrderStatusSelect" widget="NavSelect" colSpan="12"/>

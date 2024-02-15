@@ -10,7 +10,7 @@
 		<datetime name="startDateT" title="Start Date" required="true"/>
 		<datetime name="endDateT" title="End Date" required="true"/>
 		<integer name="statusSelect" title="Status" required="true" selection="contact.event.status.select"/>
-		<integer name="typeSelect" title="Type" selection="contact.event.type.select"/>
+		<integer name="typeSelect" title="Type" selection="contact.event.type.select" />
 		<string name="notes" title="Notes" large="true"/>
 		<many-to-one name="plannedFor" ref="com.axelor.contact.db.Contact"  title="Planned for"/>
 		<extra-code >

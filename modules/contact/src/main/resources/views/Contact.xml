@@ -38,10 +38,10 @@
 			</panel>
 			<panel title="Other informations">
 				<field name="isSubjectToTaxes" widget="boolean-switch"/>
-				<field name="familyContactSet" widget="ref text"/>
+				<field name="familyContactSet"  widget="tagSelect"/>
 			</panel>
 		</panel-tabs>
-		<panel-dashlet action="action.sale.data.view.sale.order.line.contact" />
+		<panel-dashlet action="action.sale.data.view.sale.order.line.contact" title="Related sale order details"/>
 		
 		<panel-mail>
 			<mail-messages limit="5"/>
