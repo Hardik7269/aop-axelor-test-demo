@@ -50,4 +50,17 @@
 
 	</form>
 
+	<!-- <cards name="contact-card" model="com.axelor.contact.db.Contact" title="First name Last name">
+		<field name="fullName"/>
+		<field name="image"/>
+		<field name="phone"/>
+		<field name="email"/>
+		<field name="address"/>
+		
+		<template></template>
+		<toolbar>
+		<button onClick="" name=""/>
+		</toolbar>
+	</cards>
+ -->
 </object-views>

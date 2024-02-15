@@ -19,6 +19,25 @@
 			<field name="code"/>
 		</panel>
 	</form>
+	<!-- tree view   -->
+	<tree name="product-category-tree" title="Product category tree">
+	
+	    <column name="iconSelect" type="integer" widget="ImageSelect"/>
+	    <column name="code" type="string"/>
+	    <column name="name" type="string"/>
+	
+	    <node model="com.axelor.sale.db.ProductCategory">
+	      <field name="iconSelect" as="iconSelect"/>
+	      <field name="name" as="name"/>
+	      <field name="code" as="code"/>
+	    </node>
+	
+	    <node model="com.axelor.sale.db.Product" parent="productCategoryList" draggable="true">
+	      <field name="name" as="name"/>
+	      <field name="code" as="code"/>
+	    </node>
+
+  	</tree>
 	
   <selection name="stock.stock.location.type.select">
     <option value="0" icon="img/productCategory/storable.png">Prestation</option>

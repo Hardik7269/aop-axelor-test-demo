@@ -17,7 +17,18 @@
 		<![CDATA[
 			public static final int STATUS_DRAFT = 0;
 			public static final int STATUS_PROPOSED = 1;
+			public static final int STATUS_ACCEPTED = 2;
+			public static final int STATUS_FINISHED = 3;
+			public static final int STATUS_MISSING_CONTACT = 4;
+			public static final int STATUS_POSTPONED = 5;
+			public static final int STATUS_REFUSED = 6;
+			public static final int STATUS_CANCELLED= 7;
+			
+			
 			public static final int TYPE_OTHER = 0;
+			public static final int TYPE_PHONE_CALL = 1;
+			public static final int TYPE_MEETING = 2;
+			
 		]]>
 		</extra-code>
 		

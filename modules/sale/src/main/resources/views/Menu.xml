@@ -27,9 +27,8 @@
 					</action-view>
 					
             <menuitem title="Product categories tree" name="sale-root-configuration-product-categories-tree" parent="sale-root-configuration"  action="action.sale.configuration.view.product.categories.tree"/>
-            		<action-view name="action.sale.configuration.view.product.categories.tree" title="Product category tree" >
-						<view type="grid" name="" />
-						<view type="form" name="" />
+            		<action-view name="action.sale.configuration.view.product.categories.tree" title="Product category tree" model="com.axelor.sale.db.ProductCategory">
+						<view type="tree" name="product-category-tree" />
 					</action-view>
             
             <menuitem title="Products" name="sale-root-configuration-products" parent="sale-root-configuration" action="action.sale.configuration.view.products"/>
@@ -67,6 +66,6 @@
 								<domain>self.saleOrder.satausSelect="cancelled"</domain>
 							</filter>				
 					</search-filters>
-					
+
 				
 </object-views>
