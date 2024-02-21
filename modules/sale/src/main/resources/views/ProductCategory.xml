@@ -6,7 +6,7 @@
 
 
 	<grid model="com.axelor.sale.db.ProductCategory" title="Poduct categories" name="product-category-grid">
-		<field name="iconSelect"/>
+		<field name="iconSelect" widget="image-select"/>
 		<field name="fullName"/>
 		<field name="name"/>
 		<field name="code"/>		
@@ -14,15 +14,15 @@
 
 	<form model="com.axelor.sale.db.ProductCategory" title="Product category" name="product-category-form" width="large">
 		<panel title="mainPanel">	
-			<field name="iconSelect" colSpan="6" selection="stock.stock.location.type.select" widget="ImageSelect"/>
+			<field name="iconSelect" colSpan="6" widget="image-select" />
 			<field name="name" title="Name" colSpan="6"/>
 			<field name="code"/>
 		</panel>
 	</form>
-	<!-- tree view   -->
+
 	<tree name="product-category-tree" title="Product category tree">
 	
-	    <column name="iconSelect" type="integer" widget="ImageSelect"/>
+	    <column name="iconSelect" type="integer" widget="image-select" x-labels="false"/>
 	    <column name="code" type="string"/>
 	    <column name="name" type="string"/>
 	
@@ -32,16 +32,10 @@
 	      <field name="code" as="code"/>
 	    </node>
 	
-	    <node model="com.axelor.sale.db.Product" parent="productCategoryList" draggable="true">
+	    <node model="com.axelor.sale.db.Product" draggable="true" parent="productCategory">
 	      <field name="name" as="name"/>
 	      <field name="code" as="code"/>
 	    </node>
-
   	</tree>
-	
-  <selection name="stock.stock.location.type.select">
-    <option value="0" icon="img/productCategory/storable.png">Prestation</option>
-    <option value="1" icon="img/productCategory/service.png">Product</option>
-  </selection>
-
+  	
 </object-views>

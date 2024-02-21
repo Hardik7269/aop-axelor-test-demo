@@ -5,15 +5,17 @@
   https://axelor.com/xml/ns/object-views/object-views_6.0.xsd">
   
  <menuitem title="Sale" name="sale-root" icon="fa-line-chart" icon-background="yellow"/>
-     <menuitem title="All sale orders" name="sale-root-all-sale-order" parent="sale-root"  action="action.sale.view.all.sale.order"/>
+     <menuitem title="All sale orders" name="sale-root-all-sale-order" parent="sale-root"  action="action.sale.view.all.sale.order" />
      		<action-view name="action.sale.view.all.sale.order" title="SaleOrder" model="com.axelor.sale.db.SaleOrder">
 						<view type="grid" name="sale-order-grid" />
 						<view type="form" name="sale-order-form" />
 			</action-view>
 						
+						
+						
      <menuitem title="Quotation sale orders" name="sale-root-quotation-sale-orders" parent="sale-root" action="action.sale.view.quotation.sale.orders" tag-count="true" tag-style="important"/>
      		<action-view name="action.sale.view.quotation.sale.orders" title="Quotation sale orders" model="com.axelor.sale.db.SaleOrder">
-						<view type="grid" name="sale-order-grid" />
+						<view type="grid" name="quotation-sale-order-grid" />
 						<view type="form" name="sale-order-form" />
 						<domain>self.statusSelect='quotation'</domain>					
 			</action-view>
@@ -25,6 +27,8 @@
 						<view type="grid" name="product-category-grid" />
 						<view type="form" name="product-category-form" />
 					</action-view>
+						
+						
 					
             <menuitem title="Product categories tree" name="sale-root-configuration-product-categories-tree" parent="sale-root-configuration"  action="action.sale.configuration.view.product.categories.tree"/>
             		<action-view name="action.sale.configuration.view.product.categories.tree" title="Product category tree" model="com.axelor.sale.db.ProductCategory">
@@ -48,7 +52,7 @@
 					
 					<action-view name="action.sale.data.view.sale.order.line.contact" title="Sale order lines" model="com.axelor.sale.db.SaleOrderLine">
 						<view type="grid" name="sale-order-line-grid-form-menu" />
-						<domain>self.saleOrder.customer.fullName = :fullName</domain>
+						<domain>self.saleOrder.customer.phone = :phone</domain>
 						<context name="fullName" expr="fullName"/>
 					</action-view>
 										

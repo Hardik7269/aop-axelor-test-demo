@@ -28,6 +28,40 @@
 	
 </form>
 
+<kanban columnBy="statusSelect" model="com.axelor.contact.db.Event" sequenceBy="typeSelect" title="Events" name="event-kanban">
+
+	<field name="title"/>
+	<field name="typeSelect"/>
+	<field name="plannedFor.fullName"/>
+	<field name="plannedFor.email"/>
+	<field name="plannedFor.phone"/>
+	<field name="startDateT"/>
+	<field name="endDateT"/>
+	
+	<template>
+		<![CDATA[
+		<h4>{{title}}</h4></br>
+
+              <div class="card-body">
+                  <span class="label {{typeSelect == 1 ? 'label-success' : typeSelect == 2 ? 'label-warning' : 'label-secondary'}}">
+                  {{typeSelect == 0 ? 'Other' : typeSelect == 1 ? 'Phone' : 'Meeting'}}</span>
+
+                  <h5>{{plannedFor.fullName}}</h5>
+                  <i class='fa fa-at'></i> <span style="color:blue">{{plannedFor.email}}</span></br>
+                  <i class='fa fa-phone'></i> <span style="color:blue">{{plannedFor.phone}}</span>
+
+              <div class="card-footer"></br>
+                <span>{{startDate|date:'YYYY-MM-DD HH:mm:ss'}}</span></br>
+                <span>{{endDate|date:'YYYY-MM-DD HH:mm:ss'}}</span>
+              </div>
+		]]>
+	</template>
+</kanban>
+
+<calendar name="event-calendar" model="com.axelor.contact.db.Event" eventStart="startDateT" title="Events" colorBy="typeSelect" eventLength="1">
+	<field name="typeSelect"/>
+</calendar>
+
 
 <selection name="contact.event.status.select">
 	<option value="0" color="grey">Draft</option>

@@ -18,7 +18,7 @@
 		</string>
 		
 		<decimal name="unitPriceUntaxed" title="Unit Price untaxed" required="true" min="0"/>
-		<many-to-one name="productCategoryList" ref="com.axelor.sale.db.ProductCategory"  title="Product Category" required="true"/>
+		<many-to-one name="productCategory" ref="com.axelor.sale.db.ProductCategory"  title="Product Category" required="true"/>
 		<binary name="image" title="Image"></binary>
 	
 	</entity>

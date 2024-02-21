@@ -3,6 +3,38 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://axelor.com/xml/ns/object-views
   https://axelor.com/xml/ns/object-views/object-views_6.0.xsd">
+  
+  
+  	<cards name="contact-card" model="com.axelor.contact.db.Contact" title="Contacts">
+	
+		<field name="fullName"/>
+		<field name="image"/>
+		<field name="phone"/>
+		<field name="email"/>
+		<field name="address"/>
+		
+		<template>
+			<![CDATA[
+
+			
+			<div class="span4 card-image">
+                <strong>{{fullName}}</strong>
+                <br>
+                <img ngi-if="image" ng-src="{{ $image(null, 'image')}}">
+            </div>
+            
+            <div class="span8" ng-show="phone || email || address.fullName">
+                  <br>
+                  <i class="fa fa-phone" ng-show="phone"> </i> {{phone}}
+                  <br>
+                  <i class="fa fa-at" ng-show="email"> </i> {{email}}
+                  <br>
+                 <i class="fa fa-envelope" ng-show="address.fullName"> </i> {{address.fullName}}
+                  <br>
+            </div>
+			]]>
+		</template>
+	</cards>
 
     <grid name="contact-grid" title="Contacts" model="com.axelor.contact.db.Contact">
 
@@ -50,17 +82,4 @@
 
 	</form>
 
-	<!-- <cards name="contact-card" model="com.axelor.contact.db.Contact" title="First name Last name">
-		<field name="fullName"/>
-		<field name="image"/>
-		<field name="phone"/>
-		<field name="email"/>
-		<field name="address"/>
-		
-		<template></template>
-		<toolbar>
-		<button onClick="" name=""/>
-		</toolbar>
-	</cards>
- -->
 </object-views>
