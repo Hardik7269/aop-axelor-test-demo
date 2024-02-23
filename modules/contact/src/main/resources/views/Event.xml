@@ -13,7 +13,7 @@
 		<field name="statusSelect" widget="SingleSelect"/>
 	</grid>
 
-<form model="com.axelor.contact.db.Event" title="Event" name="event-form" width="large">
+<form model="com.axelor.contact.db.Event" title="Event" name="event-form" width="large" onSave="action-contact-event-event-validate">
 	<panel title="mainPanel" >	
 		<field name="title" colSpan="4"/>
 		<field name="statusSelect" colSpan="4" widget="SingleSelect"/>
@@ -79,5 +79,9 @@
 	<option value="1" >Phone call</option>
 	<option value="2" >Meeting</option>
 </selection>
+
+<action-validate name="action-contact-event-event-validate">
+		<error message="Dates are incorrect" if="startDateT &gt;= endDateT"/>
+</action-validate>
 
 </object-views>

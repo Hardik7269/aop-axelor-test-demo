@@ -5,7 +5,7 @@
   https://axelor.com/xml/ns/object-views/object-views_6.0.xsd">
   
  <menuitem title="Sale" name="sale-root" icon="fa-line-chart" icon-background="yellow"/>
-     <menuitem title="All sale orders" name="sale-root-all-sale-order" parent="sale-root"  action="action.sale.view.all.sale.order" />
+     <menuitem title="All sale orders" name="sale-root-all-sale-order" parent="sale-root"  action="action.sale.view.all.sale.order" order="1"/>
      		<action-view name="action.sale.view.all.sale.order" title="SaleOrder" model="com.axelor.sale.db.SaleOrder">
 						<view type="grid" name="sale-order-grid" />
 						<view type="form" name="sale-order-form" />
@@ -13,15 +13,15 @@
 						
 						
 						
-     <menuitem title="Quotation sale orders" name="sale-root-quotation-sale-orders" parent="sale-root" action="action.sale.view.quotation.sale.orders" tag-count="true" tag-style="important"/>
+     <menuitem title="Quotation sale orders" name="sale-root-quotation-sale-orders" parent="sale-root" action="action.sale.view.quotation.sale.orders" tag-count="true" tag-style="important" order="2"/>
      		<action-view name="action.sale.view.quotation.sale.orders" title="Quotation sale orders" model="com.axelor.sale.db.SaleOrder">
-						<view type="grid" name="quotation-sale-order-grid" />
+						<view type="grid" name="sale-order-grid" />
 						<view type="form" name="sale-order-form" />
 						<domain>self.statusSelect='quotation'</domain>					
 			</action-view>
 			
 			
-     <menuitem title="Configuration" name="sale-root-configuration" parent="sale-root"  icon="fa-gear"/>
+     <menuitem title="Configuration" name="sale-root-configuration" parent="sale-root"  icon="fa-gear" order="3"/>
              <menuitem title="Product categories" name="sale-root-configuration-product-categories" parent="sale-root-configuration" action="action.sale.configuration.view.product.categories"/>
              		<action-view name="action.sale.configuration.view.product.categories" title="Product Category" model="com.axelor.sale.db.ProductCategory">
 						<view type="grid" name="product-category-grid" />
@@ -41,7 +41,7 @@
 						<view type="form" name="product-form" />
 					</action-view>
 					
-       <menuitem name="sale-root-data" title="Data" icon="fa-list" parent="sale-root"/>
+       <menuitem name="sale-root-data" title="Data" icon="fa-list" parent="sale-root" order="5"/>
                <menuitem title="Sale order lines" name="sale-root-data-sale-order-line" parent="sale-root-data" action="action.sale.data.view.sale.order.line"/>
                		<action-view name="action.sale.data.view.sale.order.line" title="Sale order lines" model="com.axelor.sale.db.SaleOrderLine">
 						<view type="grid" name="sale-order-line-grid-form-menu" />
@@ -52,7 +52,7 @@
 					
 					<action-view name="action.sale.data.view.sale.order.line.contact" title="Sale order lines" model="com.axelor.sale.db.SaleOrderLine">
 						<view type="grid" name="sale-order-line-grid-form-menu" />
-						<domain>self.saleOrder.customer.phone = :phone</domain>
+						<domain>self.saleOrder.customer.fullName = :fullName</domain>
 						<context name="fullName" expr="fullName"/>
 					</action-view>
 										
