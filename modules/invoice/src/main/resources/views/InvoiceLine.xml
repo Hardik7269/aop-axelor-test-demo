@@ -14,25 +14,51 @@
   	<field name="product"/>
   </grid>
   
-  <form model="com.axelor.invoice.db.InvoiceLine" title="Invoice line" name="invoice-line-form" onNew="action-invoice-line-set-tax-rate">
+  <form model="com.axelor.invoice.db.InvoiceLine" title="Invoice line" name="invoice-line-form-from-grid" onNew="action-invoice-line-set-tax-rate">
 	<panel title="Overview" colSpan="6">
-		<field name="product" onChange="action-invoice-line-form-on-change-product"/>
+		<field name="product" onChange="action-invoice-line-on-change-group"/>
 		<field name="description"/>
 		
-		<field name="unitPriceUntaxed" onChange="action-invoice-line-form-on-change-record"/>
-		<field name="quantity" onChange="action-invoice-line-form-on-change-record"/>
+		<field name="unitPriceUntaxed" onChange="action-invoice-line-on-change-group"/>
+		<field name="quantity" onChange="action-invoice-line-on-change-group"/>
+		
+		<field name="taxRate" onChange="action-invoice-line-form-on-change-total"/>
+		<field name="inTaxTotal"/>
+	</panel>
+  </form>
+  
+  <form model="com.axelor.invoice.db.InvoiceLine" title="Invoice line" name="invoice-line-form" readonlyIf="true" >
+	<panel title="Overview" colSpan="6">
+		<field name="product"/>
+		<field name="description"/>
+		
+		<field name="unitPriceUntaxed"/>
+		<field name="quantity"/>
 		
 		<field name="taxRate"/>
 		<field name="inTaxTotal"/>
 	</panel>
   </form>
   
+  <action-group name="action-invoice-line-on-change-group">
+  	<action name="action-invoice-line-form-on-change-discription"/>
+  	<action name="action-invoice-line-form-on-change-unit-price-untax"/>
+  	<action name="action-invoice-line-form-on-change-total"/>
+  </action-group>
+  
   <action-method name="action-invoice-line-set-tax-rate">
   	<call class="com.axelor.invoice.web.InvoiceLineController" method="setTaxRate"/>
   </action-method>
   
-   <action-method name="action-invoice-line-form-on-change-product">
-  	<call class="com.axelor.invoice.web.InvoiceLineController" method=""/>
+ 
+   <action-method name="action-invoice-line-form-on-change-discription">
+  	<call class="com.axelor.invoice.web.InvoiceLineController" method="setDiscription"/>
+  </action-method>
+  <action-method name="action-invoice-line-form-on-change-unit-price-untax">
+  	<call class="com.axelor.invoice.web.InvoiceLineController" method="setUnitPriceUntaxed"/>
+  </action-method>
+  <action-method name="action-invoice-line-form-on-change-total">
+  	<call class="com.axelor.invoice.web.InvoiceLineController" method="setExTaxTotal"/>
   </action-method>
 			
 </object-views>

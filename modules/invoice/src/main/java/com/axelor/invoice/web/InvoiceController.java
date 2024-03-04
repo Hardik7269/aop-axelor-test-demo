@@ -1,14 +1,15 @@
 package com.axelor.invoice.web;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.math.BigDecimal;
 
+import com.axelor.inject.Beans;
 import com.axelor.invoice.db.Invoice;
 import com.axelor.invoice.db.InvoiceLine;
+import com.axelor.invoice.service.InvoiceService;
 import com.axelor.meta.CallMethod;
 import com.axelor.rpc.ActionRequest;
 import com.axelor.rpc.ActionResponse;
@@ -19,8 +20,6 @@ public class InvoiceController {
 
 		@CallMethod
 		public void setInvoiceDateTime(ActionRequest request, ActionResponse response) {
-
-			
 	        response.setValue("invoiceDateT", LocalDateTime.now());
 		}
 		
@@ -36,17 +35,12 @@ public class InvoiceController {
 		            sumExTaxTotal = sumExTaxTotal.add(invoiceLineList.get(i).getExTaxTotal());
 		            sumInTaxTotal = sumInTaxTotal.add(invoiceLineList.get(i).getInTaxTotal());
 		        }
-
-		        System.out.println("sumInTaxTotal: " + sumInTaxTotal);
-		        System.out.println("sumExTaxTotal: " + sumExTaxTotal);
-
 		        response.setValue("inTaxTotal", sumInTaxTotal);
 		        response.setValue("exTaxTotal", sumExTaxTotal); 
 		    } catch (Exception e) {
 		        e.printStackTrace();
 		    }
 		}
-
 		
 		public void validateRecord(ActionRequest request, ActionResponse response) {
 			Context context = request.getContext();
@@ -61,9 +55,7 @@ public class InvoiceController {
 			    	response.setError("One invoice line has a null or negative total");
 			    }
 			}
-			
-			calculateTaxTotal(request , response);
-			
+			calculateTaxTotal(request , response);			
 			response.setValue("statusSelect", 1);
 		}
 		
@@ -80,16 +72,35 @@ public class InvoiceController {
 			    	response.setError("One invoice line has a null or negative total");
 			    }
 			}
-			
-			calculateTaxTotal(request , response);
-			
-			response.setValue("statusSelect", 1);
+			calculateTaxTotal(request , response);			
+			response.setValue("statusSelect", 2);
 		}
 		
 		public void cancelBtn(ActionRequest request , ActionResponse response) {
 			response.setAlert("This action will cancel this invoice. Do you want to proceed?");
-			response.setValue("statusSelect", 3);
-			calculateTaxTotal(request , response);
 		}
 		
+		public void setCancelStatusBtn(ActionRequest request , ActionResponse response) {
+			Context context = request.getContext();
+			 
+		    List<Integer> ids = (List<Integer>) context.get("_ids");
+		    if(ids == null || ids.size() == 0) {
+		    	System.out.println("Empty list is here");
+		    	return;
+		    }
+		    Beans.get(InvoiceService.class).setStatusCancelBtn(ids);
+		}
+		
+		public void invoiceLineMergeBtn(ActionRequest request , ActionResponse response) {
+			 
+			ArrayList<Map<String,Object>> invoiceLineList = (ArrayList<Map<String,Object>>) request.getContext().get("invoiceLineMergeList");
+			List<Integer> idList = new ArrayList<Integer>();
+			for (int i = 0; i < invoiceLineList.size(); i++) {
+				Map<String, Object> currMap = invoiceLineList.get(i);
+				idList.add(Integer.parseInt(currMap.get("id").toString()));
+			}
+			System.out.println(idList);
+			Beans.get(InvoiceService.class).invoiceLineMergeBtn(idList);
+			System.out.println("List" + idList);
+		}
 }
