@@ -39,7 +39,7 @@
   </form>
   
   <form model="com.axelor.invoice.db.Invoice" title="Merge invoices" name="customer-invoices-merge-form">
-  	<panel-related field="$invoiceLineMergeList" type="many-to-many" grid-view="invoice-grid" canNew="false" canEdit="false" target="com.axelor.invoice.db.Invoice" domain="self.statusSelect=0"/> 	
+  	<panel-related field="$invoiceLineMergeList" type="many-to-many" grid-view="invoice-grid" form-view="invoice-form" canNew="false" canEdit="false" target="com.axelor.invoice.db.Invoice" domain="self.statusSelect=0"/>
   	<panel sidebar="true" title="Actions">
   		<button onClick="action-invoice-show-merge-btn-group" name="mergeInvoiceLineListBtn" title="Merge into single invoice"/>
   	</panel>

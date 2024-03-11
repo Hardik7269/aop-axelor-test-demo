@@ -1,6 +1,6 @@
 package com.axelor.invoice.service;
 
-import java.util.*;
+import java.util.List;
 
 public interface InvoiceService {
 	public void setStatusCancelBtn(List<Integer> list);

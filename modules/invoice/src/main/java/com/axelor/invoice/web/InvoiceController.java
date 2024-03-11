@@ -9,21 +9,20 @@ import java.math.BigDecimal;
 import com.axelor.inject.Beans;
 import com.axelor.invoice.db.Invoice;
 import com.axelor.invoice.db.InvoiceLine;
-import com.axelor.invoice.service.InvoiceService;
-import com.axelor.meta.CallMethod;
 import com.axelor.rpc.ActionRequest;
 import com.axelor.rpc.ActionResponse;
 import com.axelor.rpc.Context;
 
+import com.axelor.invoice.service.InvoiceService;
+
+
 
 public class InvoiceController {
 
-		@CallMethod
-		public void setInvoiceDateTime(ActionRequest request, ActionResponse response) {
+		public void setInvoiceDateTime(ActionRequest request, ActionResponse response) {			
 	        response.setValue("invoiceDateT", LocalDateTime.now());
 		}
-		
-		
+				
 		public void calculateTaxTotal(ActionRequest request, ActionResponse response) {
 		    try {
 		        Context context = request.getContext();
@@ -41,6 +40,7 @@ public class InvoiceController {
 		        e.printStackTrace();
 		    }
 		}
+
 		
 		public void validateRecord(ActionRequest request, ActionResponse response) {
 			Context context = request.getContext();
@@ -55,7 +55,9 @@ public class InvoiceController {
 			    	response.setError("One invoice line has a null or negative total");
 			    }
 			}
-			calculateTaxTotal(request , response);			
+			
+			calculateTaxTotal(request , response);
+			
 			response.setValue("statusSelect", 1);
 		}
 		
@@ -72,14 +74,15 @@ public class InvoiceController {
 			    	response.setError("One invoice line has a null or negative total");
 			    }
 			}
-			calculateTaxTotal(request , response);			
+			
+			calculateTaxTotal(request , response);
+			
 			response.setValue("statusSelect", 2);
 		}
 		
 		public void cancelBtn(ActionRequest request , ActionResponse response) {
 			response.setAlert("This action will cancel this invoice. Do you want to proceed?");
 		}
-		
 		public void setCancelStatusBtn(ActionRequest request , ActionResponse response) {
 			Context context = request.getContext();
 			 
@@ -103,4 +106,5 @@ public class InvoiceController {
 			Beans.get(InvoiceService.class).invoiceLineMergeBtn(idList);
 			System.out.println("List" + idList);
 		}
+		
 }
