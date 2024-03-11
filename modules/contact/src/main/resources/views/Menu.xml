@@ -5,7 +5,7 @@
   https://axelor.com/xml/ns/object-views/object-views_6.0.xsd">
 
   
- <menuitem title="Contact" name="contact-root" icon="fa-user" icon-background="green" order="2"/>  
+ <menuitem title="Contact" name="contact-root" icon="fa-user" icon-background="green" order="20"/>  
       <menuitem title="Contacts" name="contact-root-contacts" parent="contact-root" action="action.contacts.view.contact.contacts" />
       
 	         <action-view name="action.contacts.view.contact.contacts" title="Contacts" model="com.axelor.contact.db.Contact">

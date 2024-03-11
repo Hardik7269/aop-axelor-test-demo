@@ -4,7 +4,7 @@
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views
   https://axelor.com/xml/ns/object-views/object-views_6.0.xsd">
   
- <menuitem title="Sale" name="sale-root" icon="fa-line-chart" icon-background="yellow" order="3"/>
+ <menuitem title="Sale" name="sale-root" icon="fa-line-chart" icon-background="yellow" order="30"/>
      <menuitem title="All sale orders" name="sale-root-all-sale-order" parent="sale-root"  action="action.sale.view.all.sale.order" order="1"/>
      		<action-view name="action.sale.view.all.sale.order" title="SaleOrder" model="com.axelor.sale.db.SaleOrder">
 						<view type="grid" name="sale-order-grid" />
@@ -47,7 +47,6 @@
 						<view type="grid" name="sale-order-line-grid-form-menu" />
 						<view type="form" name="sale-order-line-form-form-menu"/>
 						<view-param name="search-filters" value="searchFilter"/>
-						
 					</action-view>
 					
 					<action-view name="action.sale.data.view.sale.order.line.contact" title="Sale order lines" model="com.axelor.sale.db.SaleOrderLine">

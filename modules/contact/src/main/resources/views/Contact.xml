@@ -43,7 +43,6 @@
         <field name="isSubjectToTaxes" />
         <field name="address" />
         <field name="Archived" />
-		<button onClick="action-contact-contact-open-sale-order-lines" name="saleOrderLineList" title="Sale orders" icon="fa-print"/>
 		
     </grid>
 	
@@ -56,7 +55,7 @@
 				<field name="firstName"/>
 				<field name="lastName"/>
 				<field name="title"/>
-				<field name="birthDate" onChange="action-contact-birth-date-condition-onchange"/>
+				<field name="birthDate"/>
 				
 			</panel>
 		</panel>
@@ -81,16 +80,5 @@
 
 	</form>
 	
-	  <action-view name="action-contact-contact-open-sale-order-lines" title="Sale orders" model="com.axelor.sale.db.SaleOrderLine">
-    	<view type="grid" name="sale-order-line-grid-form-menu"/>
-    	<view-param name="popup" value="true" />
-		<view-param name="limit" value="20"/>
-    	<domain>self.saleOrder.customer = :data</domain>
-    	<context name="data" expr="eval:__self__"/>
-    </action-view>
-	
-	<action-condition name="action-contact-birth-date-condition-onchange" model="com.axelor.contact.db.Contact">
-		<check field="birthDate" if="birthDate &lt; LocalDate.of(1930,1,1)" error="Should be &gt; to 1930" />	
-	</action-condition>
 
 </object-views>
