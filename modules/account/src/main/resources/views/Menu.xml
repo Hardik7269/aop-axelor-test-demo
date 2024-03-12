@@ -7,14 +7,14 @@
  	<menuitem title="Accounting" name="accounting-root" icon-background="orange" icon="fa-calculator" order="50"/>
  		<menuitem title="Move" name="accounting-root-move" parent="accounting-root" action="action.account.show.move"/>
  		
- 			<action-view name="action.account.show.move" title="Move">
+ 			<action-view name="action.account.show.move" title="Move" model="com.axelor.account.db.Move">
  				<view type="grid" name="move-grid"/>
  				<view type="form" name="move-form"/>
  			</action-view>
  			
  		<menuitem title="Move line" name="accounting-root-move-line" parent="accounting-root" action="action.account.show.move.lines"/>
  		
- 			<action-view name="action.account.show.move.lines" title="Move line">
+ 			<action-view name="action.account.show.move.lines" title="Move line" model="com.axelor.account.db.MoveLine">
  				<view type="grid" name="move-line-grid"/>
  				<view type="form" name="move-line-form"/>
  			</action-view>

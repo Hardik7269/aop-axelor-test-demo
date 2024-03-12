@@ -5,7 +5,7 @@
   https://axelor.com/xml/ns/object-views/object-views_6.0.xsd">
   
   
-  <form model="com.axelor.invoice.db.Invoice" title="Invoice" name="invoice-form" extension="true" id="account-invoice-from">
+  <form model="com.axelor.invoice.db.Invoice" title="Invoice" name="invoice-form" extension="true" id="account-invoice-from.ext">
   	<extend target="//panel[@title='Prices']">
   		<insert position="after">
   			 <panel-mail>
