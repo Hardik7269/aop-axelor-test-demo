@@ -15,4 +15,9 @@
   		</insert>
   	</extend>
   </form>
+  
+  <action-method name="action-account-invoice-generate-move-from-invoice">
+  	<call class="com.axelor.account.web.InvoiceAccountController" method="generateMoveFromInvoice"/>
+  </action-method>
+  
 </object-views>

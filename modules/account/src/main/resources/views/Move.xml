@@ -13,13 +13,10 @@
 		<panel name="movePanel" title="Overview">	
 			<field name="refrence"/>
 			<field name="invoice"/>
-			<panel-dashlet action="action-move-show-move-lines"/>
+			<panel-related field="moveLineList" form-view="move-line-form" grid-view="move-line-grid" colSpan="12"/>
 		</panel>
 		<panel sidebar="true" title="Dates">
 			<field name="operationDate"/>
 		</panel>
 	</form>
-	<action-view name="action-move-show-move-lines" title="Move Lines">
-		<view type="grid" name="move-line-grid"/>
-	</action-view>
   </object-views>

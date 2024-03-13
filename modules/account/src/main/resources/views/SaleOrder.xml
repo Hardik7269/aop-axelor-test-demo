@@ -38,7 +38,7 @@
 	</form>
 	
 	<action-method name="action-account-sale-order-generate-invoice">
-		<call class="com.axelor.account.web.AccountController" method="generateInvoiceFromSaleOrder"/>
+		<call class="com.axelor.account.web.SaleOrderAccountController" method="generateInvoiceFromSaleOrder"/>
 	</action-method>
 	
 	
